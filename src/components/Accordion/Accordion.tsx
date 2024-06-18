@@ -3,17 +3,17 @@ import { useState } from "react";
 import { ArrowIcon } from "../Icons";
 import styles from "./Accordion.module.css";
 
-interface Data<T> {
+interface Data {
   id: number;
   title: string;
-  content: T;
+  content: React.ReactNode;
 }
 
-interface Props<T> {
-  data: Data<T>[];
+interface Props {
+  data: Data[];
 }
 
-export const Accordion = <T,>({ data }: Props<T>): JSX.Element => {
+export const Accordion = ({ data }: Props): JSX.Element => {
   const [toggle, setToggle] = useState(-1);
 
   const handleClick = (id: number) => {
@@ -34,17 +34,17 @@ export const Accordion = <T,>({ data }: Props<T>): JSX.Element => {
   );
 };
 
-interface SectionProps<T> {
-  data: Data<T>;
+interface SectionProps {
+  data: Data;
   onToggle: (id: number) => void;
   toggle: number;
 }
 
-const Section = <T,>({
+const Section = ({
   data: { id, title, content },
   onToggle,
   toggle,
-}: SectionProps<T>): JSX.Element => {
+}: SectionProps): JSX.Element => {
   const isOpen = toggle == id;
   return (
     <>
@@ -55,7 +55,7 @@ const Section = <T,>({
         </div>
       </div>
       <div className={`${styles.wrapper} ${isOpen && styles.open}`}>
-        <p className={styles.content}>{content as React.ReactNode}</p>
+        <p className={styles.content}>{content}</p>
       </div>
     </>
   );

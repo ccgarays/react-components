@@ -1,4 +1,4 @@
-import { SearchInput } from "./components";
+import { SearchInput, Accordion } from "./components";
 
 type Fruits = {
   id: string;
@@ -6,7 +6,7 @@ type Fruits = {
   name: string;
 };
 
-const data: Fruits[] = [
+const dataSearchInput: Fruits[] = [
   { id: "1", label: "Apple", name: "Apple" },
   { id: "2", label: "banana", name: "banana" },
   { id: "3", label: "blackberry", name: "blackberry" },
@@ -19,11 +19,51 @@ const data: Fruits[] = [
   { id: "10", label: "pineapple", name: "pineapple" },
 ];
 
+/* const dataAccordion: { id: number; title: string; content: string }[] = [
+  {
+    id: 1,
+    title: "titulo 1",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit vitae sed eveniet a tempora optio rerum ab consequuntur officiis, deserunt magnam delectus voluptate illum rem sint, consequatur obcaecati odit repellendus?",
+  },
+  {
+    id: 2,
+    title: "titulo 2",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit vitae sed eveniet a tempora optio rerum ab consequuntur officiis, deserunt magnam delectus voluptate illum rem sint, consequatur obcaecati odit repellendus?",
+  },
+  {
+    id: 3,
+    title: "titulo 3",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit vitae sed eveniet a tempora optio rerum ab consequuntur officiis, deserunt magnam delectus voluptate illum rem sint, consequatur obcaecati odit repellendus?",
+  },
+];
+ */
+
+const dataAccordion2 = [
+  {
+    id: 1,
+    title: "titulo 1",
+    content: <div>div numero 1</div>,
+  },
+  {
+    id: 2,
+    title: "titulo 2",
+    content: <p>div numero 2</p>,
+  },
+  {
+    id: 3,
+    title: "titulo 3",
+    content: <div>div numero 3</div>,
+  },
+];
+
 function App() {
   return (
     <>
       <SearchInput
-        data={data}
+        data={dataSearchInput}
         style={{
           label: "Fruits",
           fullWidth: false,
@@ -36,6 +76,7 @@ function App() {
         }}
         // disabled={true}
       />
+      <Accordion data={dataAccordion2} />
     </>
   );
 }
